@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf1bdac1a5a7e94584a6661346ff08b, type: 3}
+  m_Name: Stick Settings
+  m_EditorClassIdentifier: 
+  _weaponTemplate: {fileID: 269180389628208080, guid: f38bdec9fad26344483e94da72793cef, type: 3}
+  _startSize: {x: 1, y: 1, z: 1}
+  _sizeModifier: {x: 0.5, y: 0.5, z: 0.5}
+  _maxSize: {x: 3, y: 3, z: 3}
+  _startDistance: 1
+  _shotTime: 0.2
+  _speedTimeMultiply: 2
+  _distanceMultiply: 2
+  _unitsForSuperStrike: 1
