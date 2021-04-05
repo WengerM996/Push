@@ -29,7 +29,7 @@ public class BotAttackState : State
             Debug.LogError("Scriptable object not found");
         }
         
-        CreateWeapon();
+        //CreateWeapon();
     }
     
     private void CreateWeapon()
@@ -42,6 +42,7 @@ public class BotAttackState : State
 
     private void OnEnable()
     {
+        return;
         if (_coroutine == null)
         {
             _coroutine = StartCoroutine(Action());

@@ -9,17 +9,21 @@ using UnityEngine;
 /// 
 public class StickWeapon : Weapon
 {
-    [SerializeField] private CapsuleCollider _mainStick;
-    [SerializeField] private CapsuleCollider _shootingStick;
+    [SerializeField] private GameObject _stick;
+    [SerializeField] private GameObject _shootingStick;
     [SerializeField] private Push _push;
     [SerializeField] private float _shotDistance;
     [SerializeField] private float _shotTime;
     
     [SerializeField] private SuperStrikeAccumulator _strikeAccumulator;
+    
+    private Tweener _shootingTweener;
+    private bool _using;
 
-    private Coroutine _coroutine;
-    private Tweener _shooting;
-
+    private Vector3[] _path;
+    private Rigidbody _rbShotStick;
+    private Collider _stickCollider;
+    private Collider _shotStickCollider;
 
     protected override void OnAwake()
     {
@@ -33,58 +37,56 @@ public class StickWeapon : Weapon
         {
             Debug.LogError("Scriptable object not found");
         }
-        
+
+        _path = new[]
+        {
+            Vector3.left * _shotDistance, Vector3.zero
+        };
+
+        _rbShotStick = _shootingStick.GetComponent<Rigidbody>();
+
+        _stickCollider = _stick.GetComponent<Collider>();
+        _shotStickCollider = _shootingStick.GetComponent<Collider>();
+
         _push.StateMachine = StateMachine;
     }
+    
 
     public override void Use()
     {
-        if (_coroutine == null)
-        {
-            _coroutine = StartCoroutine(Action());
-        }
-    }
-
-    private IEnumerator Action()
-    {
-        _mainStick.isTrigger = true;
-        _shootingStick.isTrigger = false;
-        _push.Enabled = true;
-
-        var (distanceModifier, speedModifier) = _strikeAccumulator.Use();
-        Shot(distanceModifier, speedModifier);
+        if (_using) return;
+        _using = true;
         
-        float counter = 0;
+        _rbShotStick.isKinematic = false;
+        _rbShotStick.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
-        while (counter < _shotTime * 2)
+        if (_shootingTweener == null)
         {
-            counter += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            _shootingTweener = _rbShotStick.DOLocalPath(_path, _shotTime * _path.Length)
+                .SetRelative()
+                .OnComplete(OnTweenerComplete)
+                .SetAutoKill(false);
         }
-
-        _shootingStick.isTrigger = true;
-        _mainStick.isTrigger = false;
-        _push.Enabled = false;
-
-        _coroutine = null;
-    }
-
-    private void Shot(int distanceMultiply, int speedMultiply)
-    {
-        if (_shooting == null)
-            _shooting = _shootingStick.gameObject.transform.DOLocalMoveX(-_shotDistance * distanceMultiply, _shotTime / speedMultiply)
-                .SetLoops(2, LoopType.Yoyo).SetAutoKill(false);
         else
         {
-            var newDistance = Vector3.left * (_shotDistance * distanceMultiply);
-            var newDuration = _shotTime / speedMultiply;
-            _shooting.ChangeEndValue(newDistance, newDuration);
-            _shooting.Restart();
+            _shootingTweener.Restart();
         }
+    }
+
+    private void OnTweenerComplete()
+    {
+        _rbShotStick.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        _rbShotStick.isKinematic = true;
+        _using = false;
+    }
+
+    private void Update()
+    {
+        _shootingStick.transform.rotation = _stick.transform.rotation;
     }
 
     private void OnDestroy()
     {
-        _shooting.Kill();
+        _shootingTweener.Kill();
     }
 }

@@ -12,7 +12,7 @@ public class Push : MonoBehaviour
     
     public StateMachine StateMachine { get; set; }
     
-    public bool Enabled { get; set; }
+    //public bool Enabled { get; set; }
 
     private void Awake()
     {
@@ -29,14 +29,11 @@ public class Push : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (Enabled == false) return;
-        
         if (other.collider.TryGetComponent(out StateMachine stateMachine))
         {
             if (stateMachine == StateMachine) return;
             
-            var rigidBody = stateMachine.GetComponent<Rigidbody>();
-            rigidBody.AddForce(-transform.right.normalized * _force, ForceMode.Impulse);
+            Debug.LogWarning("Collision with " + stateMachine.name);
             stateMachine.ApplyHit(StateMachine);
         }
     }

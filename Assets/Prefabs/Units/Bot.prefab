@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201593894079645792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1578, z: 0.0876}
+  m_LocalPosition: {x: 0, y: 0.1578, z: 0.15}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 2405825688941416351}
@@ -1096,8 +1096,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08490795, y: 0.2953369, z: 0.05280319}
-  m_Center: {x: 0, y: 0.1480991, z: 0.0026416332}
+  m_Size: {x: 0.08490795, y: 0.2953369, z: 0.10683069}
+  m_Center: {x: 0, y: 0.1480991, z: 0.007880285}
 --- !u!54 &2405825688941319090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &2405825688941319089
 MonoBehaviour:
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   _stickSettings: {fileID: 11400000, guid: 06b26b33b9beaac4b80027bd6742e163, type: 2}
   _chaseState: {fileID: 2405825688941319092}
   _weaponTemplate: {fileID: 269180389628208080, guid: f38bdec9fad26344483e94da72793cef, type: 3}
-  _weaponRotation: {x: 0, y: 90, z: 0}
+  _weaponRotation: {x: 0, y: 0, z: 0}
   _weaponPosition: {fileID: 201593894079645793}
   _speedRotation: 2
 --- !u!114 &7213387586577182658

@@ -5416,7 +5416,7 @@ MonoBehaviour:
   _player: {fileID: 3478571343199738575, guid: e0f6f30072030604ea36a28018d736cb, type: 3}
   _playerSpawnPoint: {fileID: 7749845004375768258}
   _bot: {fileID: 2405825688941319089, guid: 8be6a8c4bd041cf4e91497b42d9b967b, type: 3}
-  _botCount: 12
+  _botCount: 3
   _botSpawnPoints:
   - {fileID: 7749845004478162562}
   - {fileID: 7749845004690890993}

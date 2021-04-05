@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434782510362657048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1578, z: 0.0876}
+  m_LocalPosition: {x: 0, y: 0.1578, z: 0.15}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 3478571343199438567}
@@ -218,8 +218,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08490795, y: 0.2953369, z: 0.05280319}
-  m_Center: {x: 0, y: 0.1480991, z: 0.0026416332}
+  m_Size: {x: 0.08490795, y: 0.2953369, z: 0.10683069}
+  m_Center: {x: 0, y: 0.1480991, z: 0.007880285}
 --- !u!54 &3478571343199738570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -228,13 +228,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478571343199738567}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &3478571343199738575
 MonoBehaviour:
@@ -297,7 +297,7 @@ MonoBehaviour:
   - {fileID: 3478571343199738574}
   _stickSettings: {fileID: 11400000, guid: 06b26b33b9beaac4b80027bd6742e163, type: 2}
   _weaponTemplate: {fileID: 269180389628208080, guid: f38bdec9fad26344483e94da72793cef, type: 3}
-  _weaponRotation: {x: 0, y: 90, z: 0}
+  _weaponRotation: {x: 0, y: 0, z: 0}
   _weaponPosition: {fileID: 1434782510362657049}
 --- !u!114 &3478571343199738574
 MonoBehaviour:

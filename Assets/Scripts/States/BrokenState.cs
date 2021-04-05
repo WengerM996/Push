@@ -22,7 +22,9 @@ public class BrokenState : State
 
     private void Broke()
     {
-        _navMeshAgent.enabled = false;
+        if (_navMeshAgent != null)
+            _navMeshAgent.enabled = false;
+        
         Animator.SetBool(Run, false);
         Animator.SetFloat(Speed, 0f);
         Animator.SetTrigger(Fall);

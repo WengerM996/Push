@@ -555,8 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stickSettings: {fileID: 11400000, guid: 06b26b33b9beaac4b80027bd6742e163, type: 2}
-  _mainStick: {fileID: 8163225256675159448}
-  _shootingStick: {fileID: 2146284756580902611}
+  _shootingStickTemplate: {fileID: 0}
   _push: {fileID: 2627639806356314621}
   _shotDistance: 1
   _shotTime: 0.2
@@ -1127,7 +1126,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!114 &2627639806356314621
 MonoBehaviour:
   m_ObjectHideFlags: 0

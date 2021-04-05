@@ -48,7 +48,9 @@ public class MoveState : State
 
         Animator.SetFloat(RunSpeedAnimation, animationSpeed);
         
-        Vector3 direction = Vector3.forward * _floatingJoystick.Vertical + Vector3.right * _floatingJoystick.Horizontal;
+        if (_floatingJoystick.Using == false) return;
+        
+        Vector3 direction = (Vector3.forward * _floatingJoystick.Vertical) + (Vector3.right * _floatingJoystick.Horizontal);
         RigidBody.MovePosition(transform.position + direction * (_speed * Time.fixedDeltaTime));
         RigidBody.MoveRotation(Quaternion.LookRotation(direction));
     }

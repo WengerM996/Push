@@ -73,6 +73,8 @@ public abstract class StateMachine : MonoBehaviour, IDamageable
 
     public void ApplyHit(StateMachine attacker)
     {
+        Debug.LogWarning(name + " Attack By " );
+        
         if (_coroutine == null)
             _coroutine = StartCoroutine(Mark(attacker));
         

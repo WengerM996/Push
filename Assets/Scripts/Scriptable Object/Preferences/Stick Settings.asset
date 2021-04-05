@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf1bdac1a5a7e94584a6661346ff08b, type: 3}
   m_Name: Stick Settings
   m_EditorClassIdentifier: 
-  _weaponTemplate: {fileID: 269180389628208080, guid: f38bdec9fad26344483e94da72793cef, type: 3}
-  _startSize: {x: 1, y: 1, z: 1}
-  _sizeModifier: {x: 0.5, y: 0.5, z: 0.5}
+  _weaponTemplate: {fileID: 1022123022824122047, guid: 27a29cf04b57d374586ba2b0db786c7f, type: 3}
+  _startSize: {x: 0.5, y: 0.1, z: 0.1}
+  _sizeModifier: {x: 1, y: 0, z: 0}
   _maxSize: {x: 3, y: 3, z: 3}
   _startDistance: 1
-  _shotTime: 0.2
+  _shotTime: 0.4
   _speedTimeMultiply: 2
   _distanceMultiply: 2
   _unitsForSuperStrike: 1

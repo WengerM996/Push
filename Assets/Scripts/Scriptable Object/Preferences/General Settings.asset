@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a498693d50a706a4d9044c117d45b765, type: 3}
   m_Name: General Settings
   m_EditorClassIdentifier: 
-  _costUnit: 5000
-  _costCrystal: 1
+  _costUnit: 1000
+  _costCrystal: 100
   _distanceBetweenCrystals: 0.1

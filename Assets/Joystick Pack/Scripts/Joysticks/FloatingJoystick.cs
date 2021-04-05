@@ -8,14 +8,14 @@ public class FloatingJoystick : Joystick
     protected override void Start()
     {
         base.Start();
-        _visual = false;
+        //_visual = true;
         background.gameObject.SetActive(false);
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
-        if (_visual)
+        //if (_visual)
             background.gameObject.SetActive(true);
         base.OnPointerDown(eventData);
     }
